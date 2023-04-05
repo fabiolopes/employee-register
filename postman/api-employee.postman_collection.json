@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "58a1562d-20a2-4894-a699-ac0c44f9a7c1",
+		"name": "api-employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6166833"
+	},
+	"item": [
+		{
+			"name": "New employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"id\", jsonData[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Brasileiro da Silva\",\r\n    \"phone\": \"11995944444\",\r\n    \"street\": \"Rua Projetada\",\r\n    \"number\": \"85\",\r\n    \"district\": \"Centro\",\r\n    \"complement\": \"\",\r\n    \"city\": \"São Paulo\",\r\n    \"zipcode\": \"06243-020\",\r\n    \"country\": \"Brasil\",\r\n    \"functionDescription\": \"Analista Financeiro\",\r\n    \"salary\": \"10000.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/employee",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/employee/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employee",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/employee/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employee",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Brasileiro da Silva\",\r\n    \"phone\": \"11995944444\",\r\n    \"street\": \"Rua Projetada\",\r\n    \"number\": \"96\",\r\n    \"district\": \"Centro\",\r\n    \"complement\": \"\",\r\n    \"city\": \"São Paulo\",\r\n    \"zipcode\": \"06243-020\",\r\n    \"country\": \"Brasil\",\r\n    \"functionDescription\": \"Analista Financeiro\",\r\n    \"salary\": \"50000.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/employee/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employee",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
